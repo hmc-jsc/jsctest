@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jscdemo.jsctest.user.dao.userDao">
+    <select id="getAll" resultType="com.jscdemo.jsctest.user.entity.userEntity" parameterType="java.util.Map">
+        select * from user
+    </select>
+    <delete id="delById" parameterType="java.lang.Integer">
+        delete from user where id = ${id}
+    </delete>
+    <insert id="save" parameterType="com.jscdemo.jsctest.user.entity.userEntity">
+        INSERT INTO `jsctest`.`user` (
+           	`id`,
+            `username`,
+            `pwd`,
+            `createtime`,
+            `status`
+        )
+        VALUES
+            (
+                NULL,
+                #{username},
+                #{pwd},
+                #{creratetime},
+                #{status}
+            );
+
+
+    </insert>
+
+</mapper>
